@@ -22,4 +22,4 @@ AWS Terraform provider documentation: https://registry.terraform.io/providers/ha
 4) `terraform apply`
 
 ## For Details On Parameters You Can Add To Deploy Instances In AWS:
-AWS Instances Details: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance<img width="466" height="46" alt="image" src="https://github.com/user-attachments/assets/33e8c5a5-ef1e-4716-b535-5e8d91fa1f8a" />
+AWS Instances Details: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
