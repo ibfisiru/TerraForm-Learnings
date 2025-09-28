@@ -7,7 +7,8 @@ Add AWS Nameservers so that Route 53 settings will be applied:
 - ns-876.awsdns-45.net
 
 ## Architecture
-![](architecture.png)
+<img width="434" height="700" alt="image" src="https://github.com/user-attachments/assets/5ad03c5b-ea13-4863-b971-f583647ac572" />
+
 
 ## Notes:
 - Had to add security group with IP of ec2 instance for inbound access (by default inbound traffic was blocked)
