@@ -1,28 +1,28 @@
 	terraform {
 	required_providers {
-				    aws = {
-				      source  = "hashicorp/aws"
-				      version = "~> 3.0"
+			  aws = {
+		      source  = "hashicorp/aws"
+			 version = "~> 3.0"
 				    }
 				  }
 				}
 				
-				provider "aws" {
-				  region = "us-east-1"
+			provider "aws" {
+			region = "us-east-1"
 			}
 				
 				resource "aws_instance" "webAppInstance1" {
-                     tags = {
-                            Name = "webAppInstance1"
-                             }
-				   ami           = "ami-0360c520857e3138f" # Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type. Support available from Canonical // us-east-1
-		           instance_type = "t3.micro"
-				  security_groups = [aws_security_group.instances.name]
-				  user_data       = <<-EOF
-				              #!/bin/bash
-				              echo "Hello, World 1" > index.html
-				              python3 -m http.server 8080 &
-				              EOF
+                	tags = {
+                    	Name = "webAppInstance1"
+                        }
+				ami           = "ami-0360c520857e3138f" # Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type. Support available from Canonical // us-east-1
+		        instance_type = "t3.micro"
+				security_groups = [aws_security_group.instances.name]
+				user_data       = <<-EOF
+			         #!/bin/bash
+			         echo "Hello, World 1" > index.html
+			        python3 -m http.server 8080 &
+			         EOF
 				}
 				
 				resource "aws_instance" "webAppInstance2" {
@@ -40,21 +40,21 @@
 				}
 				
 				resource "aws_s3_bucket" "WebAppBucket" {
-				  bucket_prefix = "test-web-app-bucket"
-				  force_destroy = true
+					bucket_prefix = "test-web-app-bucket"
+				  	force_destroy = true
 				}
 				
 				resource "aws_s3_bucket_versioning" "bucket_versioning" {
-				  bucket = aws_s3_bucket.WebAppBucket.id
-				  versioning_configuration {
+				  	bucket = aws_s3_bucket.WebAppBucket.id
+				 	 versioning_configuration {
 				    status = "Enabled"
 				  }
 				}
 				
 				resource "aws_s3_bucket_server_side_encryption_configuration" "bucket_crypto_conf" {
-				  bucket = aws_s3_bucket.WebAppBucket.bucket
-				  rule {
-				    apply_server_side_encryption_by_default {
+				 	 bucket = aws_s3_bucket.WebAppBucket.bucket
+				 	 rule {
+				     apply_server_side_encryption_by_default {
 				      sse_algorithm = "AES256"
 				    }
 				  }
