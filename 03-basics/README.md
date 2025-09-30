@@ -33,11 +33,11 @@ Now the S3 bucket and dynamoDB table are mam and are able to be used as the stat
 ## Web-App
 
 Generic web application architecture including:
-- EC2 instances
-- S3 bucket
-- RDS instance
-- Load balancer
-- Route 53 DNS config
+- 2 EC2 instances
+- An S3 bucket
+- An RDS instance
+- A Load balancer
+- Route 53 DNS configuration
 
 This example will be refined and improved in later modules.
 
